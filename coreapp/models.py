@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-# 1) Custom User model
+
 class User(AbstractUser):
     ROLE_CHOICES = [
         ('MODULE_LEADER', 'Module Leader'),
@@ -15,7 +15,7 @@ class User(AbstractUser):
         return f"{self.username} ({self.role})"
 
 
-# 2) Student model
+
 class Student(models.Model):
     name = models.CharField(max_length=100)
     matric_id = models.CharField(max_length=20, unique=True)
@@ -27,7 +27,7 @@ class Student(models.Model):
         return f"{self.matric_id} - {self.name}"
 
 
-# 3) Project model
+
 class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
@@ -38,7 +38,7 @@ class Project(models.Model):
         return self.title
 
 
-# 4) Assignment model
+
 class Assignment(models.Model):
     STATUS_CHOICES = [
         ('UNASSIGNED', 'Unassigned'),
@@ -60,7 +60,7 @@ class Assignment(models.Model):
         return f"{self.student} -> {self.project}"
 
 
-# 5) MarkingSheet model
+
 class MarkingSheet(models.Model):
     assignment = models.ForeignKey(Assignment, on_delete=models.CASCADE)
     file_path = models.CharField(max_length=255)
@@ -69,3 +69,15 @@ class MarkingSheet(models.Model):
     def __str__(self):
         return f"Sheet for {self.assignment}"
 
+
+
+class ModuleLeader(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    department = models.CharField(max_length=100)
+    phone = models.CharField(max_length=15, blank=True)
+    office_location = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
