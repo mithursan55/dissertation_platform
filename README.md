@@ -23,18 +23,18 @@ Backend Setup (Django + PostgreSQL)
 Go into the backend folder:
 
 
-
 cd backend\_new
 
 
 
-1\.Create a Virtual Environment
+1.Create a Virtual Environment
+
 
 python -m venv venv
 
 
 
-2\.Activate the Virtual Environment
+2.Activate the Virtual Environment
 
 
 
@@ -114,8 +114,6 @@ python manage.py createsuperuser
 
 Enter:
 
-
-
 Username: admin
 
 
@@ -136,7 +134,7 @@ python manage.py runserver
 
 
 
-&nbsp;You can now open your browser and visit:
+You can now open your browser and visit:
 
 
 
@@ -156,7 +154,7 @@ Frontend Setup (React)
 
 
 
-Open a new PowerShell window, then go to the frontend folder:
+Open a new PowerShell window, then go to the frontend folder
 
 
 
